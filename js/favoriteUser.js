@@ -4,7 +4,7 @@ export class Favorites {
     constructor(root) {
         this.root = document.querySelector(root)
         this.load()
-        this.empty()
+        this.noneFavorite()
     }
 
     load() {
@@ -12,7 +12,11 @@ export class Favorites {
         ('@github-favorites:')) || []
     }
 
-    empty() {
+    save() {
+       localStorage.setItem('@github-favorites:', JSON.stringify(this.entries)) 
+    }
+
+    noneFavorite() {
         if (this.entries.length == 0) {
           this.removeFavorite()
           const emptyRow = document.createElement('tr')
@@ -26,28 +30,26 @@ export class Favorites {
         }
       }
 
-    save() {
-       localStorage.setItem('@github-favorites:', JSON.stringify(this.entries)) 
-    }
-
     async add(username) {
         try {
             
             const userExists = this.entries.find(entry => entry.login === username)
+            const userName = this.root.querySelector('.search input').value
 
             if(userExists) {
-                throw new Error('Usuário já existe!')
+                throw new Error(`O usuário ${userName} já está no seus favoritos!`)
             }
             
             const user = await apiGitHub.search(username)
             
             if(user.login === undefined) {
-                throw new Error('Usuário não encontrado!')
+                throw new Error(`O usuário ${userName} não foi encontrado ou não existe!`)
             }
 
             this.entries =[user, ...this.entries]
             this.update()
             this.save()
+            this.root.querySelector('.search input').value = ''
 
         } catch(error) {
             alert(error.message)
@@ -77,7 +79,6 @@ export class FavoritesView extends Favorites {
             const { value } = this.root.querySelector('.search input')
             
             this.add(value)
-            this.root.querySelector('.search input').value = ''
         }
     }
     
@@ -97,13 +98,13 @@ export class FavoritesView extends Favorites {
             row.querySelector('.followers').textContent = user.followers
             
             row.querySelector('.remove').onclick = () => {
-                const ok = confirm('Tem certeza que deseja deletar essa linha?')
+                const ok = confirm(`Tem certeza que deseja remover ${user.login} do seus favoritos?`)
                 
                 if(ok) {
                     this.delete(user)
                 }
                 
-                this.empty()
+                this.noneFavorite()
             }
 
             this.tbody.append(row)
@@ -137,5 +138,4 @@ export class FavoritesView extends Favorites {
             tr.remove()
         })
     }
-
 }

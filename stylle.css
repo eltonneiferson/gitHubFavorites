@@ -21,12 +21,24 @@ body {
     background: var(--bg-color);
     max-width: 1120px;
     margin: 0 auto;
-    padding-top: 100px;
+    padding-top: 7rem;
 }
 
 body * {
     font-family: var(--font-default);
     color: var(--tx-color);
+}
+
+.sr-only {     /**Classe para ocultar elementos e permanecerem visíveis para os leitores de tela**/
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 /*Estilização cabeçalho*/
@@ -35,7 +47,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
 }
 
 .search, .search button {
@@ -46,13 +58,13 @@ header {
 
 .search input, .search button {
     border: none;
-    border-radius: 5px;
-    height: 48px;
+    border-radius: .3rem;
+    height: 3rem;
 }
 
 .search input {
     background: var(--bg-input);
-    width: 462px;
+    width: 29rem;
     padding: 1rem;
     font-size: 1rem;
 }
@@ -60,9 +72,9 @@ header {
 .search button {
     background: var(--bg-button);
     cursor: pointer;
-    padding: 12px 2rem;
+    padding: 1rem 2rem;
     font-weight: 700;
-    font-size: 14px;
+    font-size: .8rem;
 }
 
 .search button:hover, .search button:hover svg path {
@@ -74,7 +86,7 @@ header {
 /*Estilização da tabela*/
 
 table * {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-decoration: none;
 }
 
@@ -84,7 +96,7 @@ table {
     border-collapse: collapse;
     
     display: block;
-    max-height: 410px;
+    max-height: 25.5rem;
     overflow: auto;
 }
 
@@ -95,22 +107,16 @@ table thead {
 }
 
 table tbody {
-    background: var(--bg-tboby);    
-    
+    background: var(--bg-tboby); 
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
-    border-radius: 10px;
+    width: .3rem;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #4A808C;
-}
-
-table tbody tr {
-    display: table-row;
-    width: 100%;
+    border-radius: 1rem;
 }
 
 table thead tr th, table tbody tr td {
@@ -152,7 +158,7 @@ table tbody tr td div.empty {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 60px;
+    gap: 3.75rem;
     padding: 5rem;
 }
 
