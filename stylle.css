@@ -93,6 +93,7 @@ table * {
 table {
     text-align: left;
     border: 1px solid #4A808C;
+    border-radius: 6px;
     border-collapse: collapse;
     
     display: block;
