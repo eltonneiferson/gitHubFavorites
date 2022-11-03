@@ -13,14 +13,15 @@
     --bg-tboby: hsla(192, 63%, 3%, 1);
     --font-default: 'Roboto', sans-serif;
     --tx-color: #E1E1E6;
+    --bg-tbody-tr-odd: rgba(6, 22, 27, 0.5);
+    --bg-tbody-tr-even: #06181C;
 }
 
 body {
     background: var(--bg-color);
-    height: 100vh;
     max-width: 1120px;
     margin: 0 auto;
-    padding-top: 115px;
+    padding-top: 100px;
 }
 
 body * {
@@ -34,13 +35,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 87px;
+    margin-bottom: 50px;
 }
 
 .search, .search button {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .search input, .search button {
@@ -72,28 +73,56 @@ header {
 
 /*Estilização da tabela*/
 
-table {
-    border-collapse: collapse;
-    border: 1px solid #4A808C;
-    text-align: left;
+table * {
+    font-size: 1.1rem;
+    text-decoration: none;
 }
 
-table * {
-    font-size: 20px;
-    text-decoration: none;
+table {
+    text-align: left;
+    border: 1px solid #4A808C;
+    border-collapse: collapse;
+    
+    display: block;
+    max-height: 410px;
+    overflow: auto;
 }
 
 table thead {
     background:var(--bg-thead);
+    position: sticky;
+    top: 0;
 }
 
 table tbody {
-    background: var(--bg-tboby);
-    max-height: 90%;
+    background: var(--bg-tboby);    
+    
 }
 
-table th, table td {
-    padding: 1rem 40px;
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4A808C;
+}
+
+table tbody tr {
+    display: table-row;
+    width: 100%;
+}
+
+table thead tr th, table tbody tr td {
+    padding: 1rem 2rem;
+}
+
+table tbody tr:nth-child(odd) {
+    background: var(--bg-tbody-tr-odd);
+}
+
+table tbody tr:nth-child(even) {
+    background:var(--bg-tbody-tr-even);
 }
 
 td.user {
@@ -102,11 +131,17 @@ td.user {
     gap: 1rem;
 }
 
+td.user img {
+    border-radius: 50%;
+    width: 3.5rem;
+}
+
 td.user p {
     font-weight: 700;
 }
 
 button.remove {
+    border: none;
     cursor: pointer;
     background: none;
     color: #F75A68;
