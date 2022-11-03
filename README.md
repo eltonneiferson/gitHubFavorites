@@ -4,28 +4,25 @@
 
 ![Imagem do projeto](./see-project/img01.png)
 
-<p>No GitFav você pode contar com as seguintes funcionalidades:</p>
+<h2>No GitFav você pode contar com as seguintes funcionalidades:</h2>
 
-<ul>
-    <li>Salvar seus usuários favoritos do GitHub</li>
+<p>Salvar seus usuários favoritos do GitHub</p>
 
 ![Imagem do projeto](./see-project/img02.png)
 
-  <li>Verificar se o usuário já não está nos favoritos</li>
+<p>Verificar se o usuário já não está nos favoritos</p>
 
 ![Imagem do projeto](./see-project/img03.png)
 
-  <li>Remover um usuário dos favoritos</li>
+<p>Remover um usuário dos favoritos</p>
 
 ![Imagem do projeto](./see-project/img04.png)
 
-  <li>Verificar se o usuário está correto ou se existe no GitHub</li>
+<p>Verificar se o usuário está correto ou se existe no GitHub</p>
 
 ![Imagem do projeto](./see-project/img05.png)
 
-</ul>
-
-<h2 align="center">Tecnologias utilizadas</h2>
+<h3 align="center">Tecnologias utilizadas</h3>
 
 <p align="center">
   <a href="https://skillicons.dev">
